@@ -1,12 +1,12 @@
 import { Radio, RadioGroup, Stack } from '@chakra-ui/react'
 import { useState } from 'react'
-interface Category {
+export interface Category {
   label: string
   value: string
 }
 
 export const categories: Category[] = [
-  { label: 'All', value: 'all' },
+  // { label: 'All', value: 'all' },
   { label: 'People', value: 'people' },
   { label: 'Planets', value: 'planets' },
   { label: 'Starships', value: 'starships' },

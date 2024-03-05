@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import Categories, { categories } from '../components/Categories'
-import CategoryDivider from '../components/CategoryDivider'
+import CategoryList from '../components/CategoryList'
 import SearchInput from '../components/SearchInput'
 
 const SearchPage = () => {
@@ -10,7 +10,7 @@ const SearchPage = () => {
       <Categories />
       <Box>
         {categories.map((category) => (
-          <CategoryDivider key={category.value} category={category.label} />
+          <CategoryList category={category} />
         ))}
       </Box>
     </>
