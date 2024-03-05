@@ -18,7 +18,7 @@ const Categories = () => {
 
   return (
     <RadioGroup onChange={setValue} value={value}>
-      <Stack direction='row' spacing='24px'>
+      <Stack direction='row' spacing={5}>
         {categories.map(({ label, value }) => (
           <Radio key={value} value={value} colorScheme='yellow'>
             {label}
