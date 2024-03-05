@@ -1,6 +1,3 @@
-import Film from './Film'
-import Person from './Person'
-
 export default interface Starship {
   name: SVGStringList
   model: string
@@ -14,8 +11,8 @@ export default interface Starship {
   hyperdrive_rating: string
   MGLT: string
   consumables: string
-  films: Film[]
-  pilots: Person[]
+  films: string[]
+  pilots: string[]
   url: string
   created: string
   edited: string

@@ -1,6 +1,3 @@
-import Film from './Film'
-import Person from './Person'
-
 export default interface Vehicle {
   name: string
   model: string
@@ -13,8 +10,8 @@ export default interface Vehicle {
   max_atmosphering_speed: string
   cargo_capacity: string
   consumables: string
-  films: Film[]
-  pilots: Person[]
+  films: string[]
+  pilots: string[]
   url: string
   created: string
   edited: string

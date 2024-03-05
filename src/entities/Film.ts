@@ -1,8 +1,4 @@
-import Person from './Person'
-import Planet from './Planet'
 import Specie from './Specie'
-import Starship from './Starship'
-import Vehicle from './Vehicle'
 
 export default interface Film {
   title: string
@@ -12,10 +8,10 @@ export default interface Film {
   producer: string
   release_date: string
   species: Specie[]
-  starships: Starship[]
-  vehicles: Vehicle[]
-  characters: Person[]
-  planets: Planet[]
+  starships: string[]
+  vehicles: string[]
+  characters: string[]
+  planets: string[]
   url: string
   created: string
   edited: string

@@ -1,6 +1,3 @@
-import Film from './Film'
-import Person from './Person'
-
 export default interface Specie {
   name: string
   classification: string
@@ -12,8 +9,8 @@ export default interface Specie {
   skin_colors: string
   language: string
   homeworld: string
-  people: Person[]
-  films: Film[]
+  people: string[]
+  films: string[]
   url: string
   created: string
   edited: string

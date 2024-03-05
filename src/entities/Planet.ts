@@ -1,6 +1,3 @@
-import Film from './Film'
-import Person from './Person'
-
 export default interface Planet {
   name: string
   diameter: string
@@ -11,8 +8,8 @@ export default interface Planet {
   climate: string
   terrain: string
   surface_water: string
-  residents: Person[]
-  films: Film[]
+  residents: string[]
+  films: string[]
   url: string
   created: string
   edited: string
