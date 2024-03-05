@@ -10,7 +10,7 @@ const SearchPage = () => {
       <Categories />
       <Box>
         {categories.map((category) => (
-          <CategoryList category={category} />
+          <CategoryList key={category.value} category={category} />
         ))}
       </Box>
     </>

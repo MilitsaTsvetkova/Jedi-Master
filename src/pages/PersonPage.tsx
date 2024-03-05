@@ -12,3 +12,4 @@ const PersonPage = () => {
 }
 
 export default PersonPage
+
