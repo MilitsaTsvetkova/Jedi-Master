@@ -4,7 +4,7 @@ import ApiClient from '../services/api-client'
 const useRelatedEntities = (entity: string, ids: string[]) => {
   const apiClient = new ApiClient(`/${entity}`)
   return useQuery({
-    queryKey: [`${entity}`, ids],
+    queryKey: [`${entity}-related`, ids],
     queryFn: () => apiClient.getAll(ids),
   })
 }

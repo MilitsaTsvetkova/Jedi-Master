@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react'
 import Person from '../entities/Person'
 import usePlanet from '../hooks/usePlanet'
-import Appearance from './Appearance'
+import Films from './Films'
 import Vehicles from './Vehicles'
 import Species from './Species'
 import { getRedirectLink } from '../utils/getRedirectLink'
@@ -62,7 +62,7 @@ const PersonDetails = ({ person }: { person: Person }) => {
                 Appearance
               </Heading>
               <Box pt='2' fontSize='sm'>
-                <Appearance
+                <Films
                   films={person.films.map((film) => film.replace(/\D/g, ''))}
                 />
               </Box>
@@ -89,8 +89,8 @@ const PersonDetails = ({ person }: { person: Person }) => {
               </Heading>
               <Box pt='2' fontSize='sm'>
                 <Species
-                  species={person.species.map((vehicle) =>
-                    vehicle.replace(/\D/g, '')
+                  species={person.species.map((specie) =>
+                    specie.replace(/\D/g, '')
                   )}
                 />
               </Box>
@@ -99,12 +99,12 @@ const PersonDetails = ({ person }: { person: Person }) => {
           {person.starships.length > 0 && (
             <Box>
               <Heading size='xs' textTransform='uppercase'>
-                Species
+                Starships
               </Heading>
               <Box pt='2' fontSize='sm'>
                 <Starships
-                  starships={person.starships.map((vehicle) =>
-                    vehicle.replace(/\D/g, '')
+                  starships={person.starships.map((starship) =>
+                    starship.replace(/\D/g, '')
                   )}
                 />
               </Box>

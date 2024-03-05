@@ -1,5 +1,3 @@
-import Specie from './Specie'
-
 export default interface Film {
   title: string
   episode_id: number
@@ -7,7 +5,7 @@ export default interface Film {
   director: string
   producer: string
   release_date: string
-  species: Specie[]
+  species: string[]
   starships: string[]
   vehicles: string[]
   characters: string[]

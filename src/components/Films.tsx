@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { getRedirectLink } from '../utils/getRedirectLink'
 import Film from '../entities/Film'
 
-const Appearance = ({ films }: { films: string[] }) => {
+const Films = ({ films }: { films: string[] }) => {
   const { data, isLoading } = useRelatedEntities('films', films)
   if (isLoading) return <Spinner />
 
@@ -21,4 +21,4 @@ const Appearance = ({ films }: { films: string[] }) => {
   )
 }
 
-export default Appearance
+export default Films

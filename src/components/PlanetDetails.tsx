@@ -10,6 +10,8 @@ import {
 } from '@chakra-ui/react'
 import Planet from '../entities/Planet'
 import { getEntityDetails } from '../services/getEntitityDetails'
+import Films from './Films'
+import People from './People'
 
 const PlanetDetails = ({ planet }: { planet: Planet }) => {
   const planetDetails = getEntityDetails(planet)
@@ -32,6 +34,32 @@ const PlanetDetails = ({ planet }: { planet: Planet }) => {
               </Text>
             </Box>
           ))}
+          {planet.films.length > 0 && (
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                Films
+              </Heading>
+              <Box pt='2' fontSize='sm'>
+                <Films
+                  films={planet.films.map((film) => film.replace(/\D/g, ''))}
+                />
+              </Box>
+            </Box>
+          )}
+          {planet.residents.length > 0 && (
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                Residents
+              </Heading>
+              <Box pt='2' fontSize='sm'>
+                <People
+                  people={planet.residents.map((resident) =>
+                    resident.replace(/\D/g, '')
+                  )}
+                />
+              </Box>
+            </Box>
+          )}
         </Stack>
       </CardBody>
     </Card>
