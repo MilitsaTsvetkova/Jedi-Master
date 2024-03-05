@@ -6,7 +6,7 @@ function HomePage() {
     <Container maxW='container.sm' centerContent>
       <Center w='100%' h='100vh'>
         <Box w='100%'>
-        <SearchInput />
+          <SearchInput />
         </Box>
       </Center>
     </Container>
