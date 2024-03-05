@@ -9,7 +9,7 @@ const Vehicles = ({ vehicles }: { vehicles: string[] }) => {
   return (
     <HStack spacing={4}>
       {data.map((entity) => (
-        <Tag key={entity.title} variant='solid' colorScheme='yellow'>
+        <Tag key={entity.name} variant='solid' colorScheme='yellow'>
           <Link
             to={`${entity.url
               .replace('https://swapi.dev/api', '')
