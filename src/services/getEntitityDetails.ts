@@ -1,4 +1,3 @@
-import Species from '../components/Species'
 import Film from '../entities/Film'
 import Person from '../entities/Person'
 import Planet from '../entities/Planet'
@@ -14,13 +13,14 @@ interface Entity {
 export const getEntityDetails = (
   entity: Planet | Vehicle | Specie | Film | Starship | Person
 ): Entity[] => {
+  const omitted = ['created', 'edited', 'url', 'homeworld', 'residents']
   const entityDetails = Object.entries(entity)
-    .filter(([key, value]) => !Array.isArray(value))
-    .filter(([key, value]) => value !== null)
-    .filter(([key, value]) => value !== 'n/a')
+    .filter(
+      ([key, value]) =>
+        !Array.isArray(value) && value !== null && value !== 'n/a'
+    )
     .map(([key, value]) => {
-      if (key !== 'created' && key !== 'edited' && key !== 'url')
-        return { label: removeUnderscore(key), value }
+      if (!omitted.includes(key)) return { label: removeUnderscore(key), value }
     })
 
   return entityDetails.filter(function (entity) {
