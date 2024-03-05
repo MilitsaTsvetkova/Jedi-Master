@@ -1,4 +1,3 @@
-import Film from './Film'
 import Specie from './Specie'
 import Starship from './Starship'
 import Vehicle from './Vehicle'
@@ -12,7 +11,7 @@ export default interface Person {
   mass: string
   skin_color: string
   homeworld: string
-  films: Film[]
+  films: string[]
   species: Specie[]
   starships: Starship[]
   vehicles: Vehicle[]

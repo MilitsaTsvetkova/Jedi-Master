@@ -14,9 +14,7 @@ const CategoryList = ({ category }: { category: Category }) => {
       {data?.results.map((item) => (
         <Box key={item.name} paddingLeft={5}>
           <Link
-            to={`/${item.url
-              .replace('https://swapi.dev/api', '')
-              .slice(0, -1)}`}
+            to={`${item.url.replace('https://swapi.dev/api', '').slice(0, -1)}`}
           >
             {item.name}
           </Link>

@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import Person from '../entities/Person'
 import usePlanet from '../hooks/usePlanet'
+import Appearance from './Appearance'
 
 const PersonDetails = ({ person }: { person: Person }) => {
   const { data: planet } = usePlanet(person.homeworld.replace(/\D/g, ''))
@@ -42,6 +43,16 @@ const PersonDetails = ({ person }: { person: Person }) => {
               </Text>
             </Box>
           ))}
+          <Box>
+            <Heading size='xs' textTransform='uppercase'>
+              Appearance
+            </Heading>
+            <Box pt='2' fontSize='sm'>
+              <Appearance
+                films={person.films.map((film) => film.replace(/\D/g, ''))}
+              />
+            </Box>
+          </Box>
         </Stack>
       </CardBody>
     </Card>
