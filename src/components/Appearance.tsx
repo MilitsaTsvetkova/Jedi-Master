@@ -1,6 +1,7 @@
 import { HStack, Spinner, Tag } from '@chakra-ui/react'
 import useRelatedEntities from '../hooks/useRelatedEntities'
 import { Link } from 'react-router-dom'
+import { getRedirectLink } from '../utils/getRedirectLink'
 
 const Appearance = ({ films }: { films: string[] }) => {
   const { data, isLoading } = useRelatedEntities('films', films)
@@ -10,10 +11,7 @@ const Appearance = ({ films }: { films: string[] }) => {
     <HStack spacing={4}>
       {data.map((film) => (
         <Tag key={film.title} variant='solid' colorScheme='yellow'>
-          <Link
-            to={`${film.url.replace('https://swapi.dev/api', '').slice(0, -1)}`}
-            key={film.title}
-          >
+          <Link to={getRedirectLink(film.url)} key={film.title}>
             {film.title}
           </Link>
         </Tag>

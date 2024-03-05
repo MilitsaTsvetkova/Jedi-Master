@@ -27,7 +27,7 @@ const VehicleDetails = ({ vehicle }: { vehicle: Vehicle }) => {
   return (
     <Card>
       <CardHeader>
-        <Heading size='md'>Vehicle within the Star Wars universe</Heading>
+        <Heading size='md'>Vehicle Details</Heading>
       </CardHeader>
 
       <CardBody>
