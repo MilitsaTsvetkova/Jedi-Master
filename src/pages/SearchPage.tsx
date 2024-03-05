@@ -1,7 +1,7 @@
-import { Box, Container } from '@chakra-ui/react'
-import SearchInput from '../components/SearchInput'
+import { Box } from '@chakra-ui/react'
 import Categories, { categories } from '../components/Categories'
 import CategoryDivider from '../components/CategoryDivider'
+import SearchInput from '../components/SearchInput'
 
 const SearchPage = () => {
   return (
