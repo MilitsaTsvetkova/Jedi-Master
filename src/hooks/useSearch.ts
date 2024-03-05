@@ -6,7 +6,7 @@ const useSearch = (entity: string, term: string) => {
   const apiClient = new ApiClient<SearchResult>(`/${entity}`)
   return useQuery({
     queryKey: [`search ${entity}`, term],
-    queryFn: () => apiClient.getBySearchTerm(entity, term),
+    queryFn: () => apiClient.getBySearchTerm(term),
   })
 }
 

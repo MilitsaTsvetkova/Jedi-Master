@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, CanceledError } from 'axios'
+import SearchResult from '../entities/Search'
 
 export interface FetchResponse<T> {
   count: number
@@ -16,11 +17,7 @@ class ApiClient<T> {
   constructor(endpoint: string) {
     this.endpoint = endpoint
   }
-  getBySearchTerm = (
-    entity: string,
-    term: string,
-    config?: AxiosRequestConfig
-  ) => {
+  getBySearchTerm = (term: string, config?: AxiosRequestConfig) => {
     return axiosInstance
       .get<FetchResponse<T>>(this.endpoint + '/' + '?search=' + term, config)
       .then((res) => res.data)
@@ -32,8 +29,8 @@ class ApiClient<T> {
   }
   getAll = (ids: string[]) => {
     return axiosInstance
-      .get<T>(this.endpoint)
-      .then((res) => res.data?.results.filter(filter(ids)))
+      .get<SearchResult>(this.endpoint)
+      .then((res) => res.data.results.filter(filter(ids)))
   }
 }
 export function filter(ids: string[]) {
