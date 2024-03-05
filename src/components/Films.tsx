@@ -15,7 +15,7 @@ const Films = ({ films, label }: { films: string[]; label: string }) => {
       </Heading>
       <Box pt='2' fontSize='sm'>
         <HStack spacing={4}>
-          {data.map((film: Film) => (
+          {data?.map((film: Film) => (
             <Tag key={film.title} variant='solid' colorScheme='yellow'>
               <Link to={getRedirectLink(film.url)} key={film.title}>
                 {film.title}
