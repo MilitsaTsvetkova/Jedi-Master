@@ -12,10 +12,11 @@ import Person from '../entities/Person'
 import usePlanet from '../hooks/usePlanet'
 import Appearance from './Appearance'
 import Vehicles from './Vehicles'
+import Species from './Species'
 
 const PersonDetails = ({ person }: { person: Person }) => {
   const { data: planet } = usePlanet(person.homeworld.replace(/\D/g, ''))
-
+  console.log(person.species)
   const personDetails = [
     { label: 'Name', value: person.name },
     { label: 'Birth Year', value: person.birth_year },
@@ -44,28 +45,46 @@ const PersonDetails = ({ person }: { person: Person }) => {
               </Text>
             </Box>
           ))}
-          <Box>
-            <Heading size='xs' textTransform='uppercase'>
-              Appearance
-            </Heading>
-            <Box pt='2' fontSize='sm'>
-              <Appearance
-                films={person.films.map((film) => film.replace(/\D/g, ''))}
-              />
+          {person.films.length > 0 && (
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                Appearance
+              </Heading>
+              <Box pt='2' fontSize='sm'>
+                <Appearance
+                  films={person.films.map((film) => film.replace(/\D/g, ''))}
+                />
+              </Box>
             </Box>
-          </Box>
-          <Box>
-            <Heading size='xs' textTransform='uppercase'>
-              Vehicles
-            </Heading>
-            <Box pt='2' fontSize='sm'>
-              <Vehicles
-                vehicles={person.vehicles.map((vehicle) =>
-                  vehicle.replace(/\D/g, '')
-                )}
-              />
+          )}
+          {person.vehicles.length > 0 && (
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                Vehicles
+              </Heading>
+              <Box pt='2' fontSize='sm'>
+                <Vehicles
+                  vehicles={person.vehicles.map((vehicle) =>
+                    vehicle.replace(/\D/g, '')
+                  )}
+                />
+              </Box>
             </Box>
-          </Box>
+          )}
+          {person.species.length > 0 && (
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                Species
+              </Heading>
+              <Box pt='2' fontSize='sm'>
+                <Species
+                  species={person.species.map((vehicle) =>
+                    vehicle.replace(/\D/g, '')
+                  )}
+                />
+              </Box>
+            </Box>
+          )}
         </Stack>
       </CardBody>
     </Card>
