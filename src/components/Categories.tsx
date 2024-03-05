@@ -5,7 +5,7 @@ interface Category {
   value: string
 }
 
-const categories: Category[] = [
+export const categories: Category[] = [
   { label: 'All', value: 'all' },
   { label: 'People', value: 'people' },
   { label: 'Planets', value: 'planets' },
