@@ -1,7 +1,3 @@
-import Specie from './Specie'
-import Starship from './Starship'
-import Vehicle from './Vehicle'
-
 export default interface Person {
   name: string
   birth_year: string
@@ -12,9 +8,9 @@ export default interface Person {
   skin_color: string
   homeworld: string
   films: string[]
-  species: Specie[]
-  starships: Starship[]
-  vehicles: Vehicle[]
+  species: string[]
+  starships: string[]
+  vehicles: string[]
   url: string
   created: string
   edited: string

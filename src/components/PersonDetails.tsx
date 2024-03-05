@@ -11,6 +11,7 @@ import {
 import Person from '../entities/Person'
 import usePlanet from '../hooks/usePlanet'
 import Appearance from './Appearance'
+import Vehicles from './Vehicles'
 
 const PersonDetails = ({ person }: { person: Person }) => {
   const { data: planet } = usePlanet(person.homeworld.replace(/\D/g, ''))
@@ -50,6 +51,18 @@ const PersonDetails = ({ person }: { person: Person }) => {
             <Box pt='2' fontSize='sm'>
               <Appearance
                 films={person.films.map((film) => film.replace(/\D/g, ''))}
+              />
+            </Box>
+          </Box>
+          <Box>
+            <Heading size='xs' textTransform='uppercase'>
+              Vehicles
+            </Heading>
+            <Box pt='2' fontSize='sm'>
+              <Vehicles
+                vehicles={person.vehicles.map((vehicle) =>
+                  vehicle.replace(/\D/g, '')
+                )}
               />
             </Box>
           </Box>

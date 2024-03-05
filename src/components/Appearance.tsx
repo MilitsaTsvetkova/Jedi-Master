@@ -1,9 +1,9 @@
 import { HStack, Spinner, Tag } from '@chakra-ui/react'
-import useFilms from '../hooks/useFilms'
+import useRelatedEntities from '../hooks/useRelatedEntities'
 import { Link } from 'react-router-dom'
 
 const Appearance = ({ films }: { films: string[] }) => {
-  const { data, isLoading } = useFilms(films)
+  const { data, isLoading } = useRelatedEntities('films', films)
   if (isLoading) return <Spinner />
 
   return (
