@@ -5,7 +5,7 @@ import CategoryDivider from '../components/CategoryDivider'
 
 const SearchPage = () => {
   return (
-    <Container maxW='container.sm'>
+    <>
       <SearchInput />
       <Categories />
       <Box>
@@ -13,7 +13,7 @@ const SearchPage = () => {
           <CategoryDivider key={category.value} category={category.label} />
         ))}
       </Box>
-    </Container>
+    </>
   )
 }
 

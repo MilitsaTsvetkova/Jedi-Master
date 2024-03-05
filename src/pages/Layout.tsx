@@ -3,11 +3,9 @@ import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
   return (
-    <>
-      <Box padding={5}>
-        <Outlet />
-      </Box>
-    </>
+    <Box padding={5}>
+      <Outlet />
+    </Box>
   )
 }
 
