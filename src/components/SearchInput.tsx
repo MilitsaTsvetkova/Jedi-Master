@@ -1,5 +1,10 @@
 import { SearchIcon } from '@chakra-ui/icons'
-import { Input, InputGroup, InputRightElement } from '@chakra-ui/react'
+import {
+  FormControl,
+  Input,
+  InputGroup,
+  InputRightElement,
+} from '@chakra-ui/react'
 import { ChangeEvent, FormEvent, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
@@ -20,7 +25,7 @@ const SearchInput = () => {
   const onChange = (event: ChangeEvent<HTMLInputElement>) =>
     setSearchQuery(event.target.value)
   return (
-    <form onSubmit={onSubmit}>
+    <FormControl onSubmit={onSubmit} w='100%'>
       <InputGroup>
         <Input
           ref={ref}
@@ -34,7 +39,7 @@ const SearchInput = () => {
           <SearchIcon />
         </InputRightElement>
       </InputGroup>
-    </form>
+    </FormControl>
   )
 }
 

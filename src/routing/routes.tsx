@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import App from '../App'
+import HomePage from '../pages/HomePage'
 import PersonPage from '../pages/PersonPage'
 import SearchPage from '../pages/SearchPage'
 import Layout from '../pages/Layout'
@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     element: <Layout />,
     children: [
-      { index: true, element: <App /> },
+      { index: true, element: <HomePage /> },
       {
         path: 'people/:id',
         element: <PersonPage />,

@@ -1,7 +1,7 @@
 import { Center, Container } from '@chakra-ui/react'
-import SearchInput from './components/SearchInput'
+import SearchInput from '../components/SearchInput'
 
-function App() {
+function HomePage() {
   return (
     <Container maxW='container.sm' centerContent>
       <Center w='100%' h='100vh'>
@@ -11,4 +11,4 @@ function App() {
   )
 }
 
-export default App
+export default HomePage
