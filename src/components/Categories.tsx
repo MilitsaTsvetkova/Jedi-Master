@@ -1,16 +1,29 @@
 import { Radio, RadioGroup, Stack } from '@chakra-ui/react'
 import { useState } from 'react'
+interface Category {
+  label: string
+  value: string
+}
+
+const categories: Category[] = [
+  { label: 'All', value: 'all' },
+  { label: 'People', value: 'people' },
+  { label: 'Planets', value: 'planets' },
+  { label: 'Starships', value: 'starships' },
+  { label: 'Vehicles', value: 'vehicles' },
+]
 
 const Categories = () => {
-  const [value, setValue] = useState('1')
+  const [value, setValue] = useState(categories[0].value)
+
   return (
     <RadioGroup onChange={setValue} value={value}>
       <Stack direction='row' spacing='24px'>
-        <Radio value='1'>All</Radio>
-        <Radio value='2'>People</Radio>
-        <Radio value='3'>Planets</Radio>
-        <Radio value='3'>Starships</Radio>
-        <Radio value='3'>Vehicles</Radio>
+        {categories.map(({ label, value }) => (
+          <Radio key={value} value={value} colorScheme='yellow'>
+            {label}
+          </Radio>
+        ))}
       </Stack>
     </RadioGroup>
   )
