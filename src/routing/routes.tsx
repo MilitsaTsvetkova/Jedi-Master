@@ -8,6 +8,7 @@ import VehiclePage from '../pages/VehiclePage'
 import FilmPage from '../pages/FilmPage'
 import SpeciePage from '../pages/SpeciePage'
 import PlanetPage from '../pages/PlanetPage'
+import StarshipPage from '../pages/StarshipPage'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: 'vehicles/:id',
         element: <VehiclePage />,
+      },
+      {
+        path: 'starships/:id',
+        element: <StarshipPage />,
       },
       {
         path: 'planets/:id',

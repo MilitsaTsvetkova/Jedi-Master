@@ -17,6 +17,7 @@ import Species from './Species'
 import { getRedirectLink } from '../utils/getRedirectLink'
 import { Link } from 'react-router-dom'
 import { getEntityDetails } from '../services/getEntitityDetails'
+import Starships from './Starships'
 
 const PersonDetails = ({ person }: { person: Person }) => {
   const { data: planet } = usePlanet(person.homeworld.replace(/\D/g, ''))
@@ -89,6 +90,20 @@ const PersonDetails = ({ person }: { person: Person }) => {
               <Box pt='2' fontSize='sm'>
                 <Species
                   species={person.species.map((vehicle) =>
+                    vehicle.replace(/\D/g, '')
+                  )}
+                />
+              </Box>
+            </Box>
+          )}
+          {person.starships.length > 0 && (
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                Species
+              </Heading>
+              <Box pt='2' fontSize='sm'>
+                <Starships
+                  starships={person.starships.map((vehicle) =>
                     vehicle.replace(/\D/g, '')
                   )}
                 />
