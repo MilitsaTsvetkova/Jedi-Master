@@ -6,6 +6,7 @@ import {
   Heading,
   Stack,
   StackDivider,
+  Tag,
   Text,
 } from '@chakra-ui/react'
 import Person from '../entities/Person'
@@ -13,20 +14,15 @@ import usePlanet from '../hooks/usePlanet'
 import Appearance from './Appearance'
 import Vehicles from './Vehicles'
 import Species from './Species'
+import { getRedirectLink } from '../utils/getRedirectLink'
+import { Link } from 'react-router-dom'
+import { getEntityDetails } from '../services/getEntitityDetails'
 
 const PersonDetails = ({ person }: { person: Person }) => {
   const { data: planet } = usePlanet(person.homeworld.replace(/\D/g, ''))
-  console.log(person.species)
-  const personDetails = [
-    { label: 'Name', value: person.name },
-    { label: 'Birth Year', value: person.birth_year },
-    { label: 'Gender', value: person.gender },
-    { label: 'Hair Color', value: person.hair_color },
-    { label: 'Height', value: person.height },
-    { label: 'Mass', value: person.mass },
-    { label: 'Skin Color', value: person.skin_color },
-    { label: 'Home World', value: planet?.name },
-  ]
+
+  const personDetails = getEntityDetails(person)
+
   return (
     <Card>
       <CardHeader>
@@ -45,6 +41,20 @@ const PersonDetails = ({ person }: { person: Person }) => {
               </Text>
             </Box>
           ))}
+          {person.films.length > 0 && (
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                Home World
+              </Heading>
+              <Box pt='2' fontSize='sm'>
+                <Tag variant='solid' colorScheme='yellow'>
+                  <Link to={getRedirectLink(person.homeworld)}>
+                    {planet?.name}
+                  </Link>
+                </Tag>
+              </Box>
+            </Box>
+          )}
           {person.films.length > 0 && (
             <Box>
               <Heading size='xs' textTransform='uppercase'>

@@ -1,7 +1,7 @@
 import { Spinner } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 import SpecieDetails from '../components/SpecieDetails'
-import useSpecie from '../hooks/useSPECIE'
+import useSpecie from '../hooks/useSpecie'
 
 const SpeciePage = () => {
   const { id } = useParams()

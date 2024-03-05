@@ -9,21 +9,11 @@ import {
   Text,
 } from '@chakra-ui/react'
 import Vehicle from '../entities/Vehicle'
+import { getEntityDetails } from '../services/getEntitityDetails'
 
 const VehicleDetails = ({ vehicle }: { vehicle: Vehicle }) => {
-  const vehicleDetails = [
-    { label: 'Name', value: vehicle.name },
-    { label: 'cargo_capacity', value: vehicle.cargo_capacity },
-    { label: 'consumables', value: vehicle.consumables },
-    { label: 'cost_in_credits', value: vehicle.cost_in_credits },
-    { label: 'crew', value: vehicle.crew },
-    { label: 'length', value: vehicle.length },
-    { label: 'manufacturer', value: vehicle.manufacturer },
-    { label: 'max_atmosphering_speed', value: vehicle.max_atmosphering_speed },
-    { label: 'model', value: vehicle.model },
-    { label: 'passengers', value: vehicle.passengers },
-    { label: 'vehicle_class', value: vehicle.vehicle_class },
-  ]
+  const vehicleDetails = getEntityDetails(vehicle)
+
   return (
     <Card>
       <CardHeader>

@@ -8,21 +8,21 @@ import {
   StackDivider,
   Text,
 } from '@chakra-ui/react'
-import Specie from '../entities/Specie'
+import Planet from '../entities/Planet'
 import { getEntityDetails } from '../services/getEntitityDetails'
 
-const SpecieDetails = ({ specie }: { specie: Specie }) => {
-  const specieDetails = getEntityDetails(specie)
+const PlanetDetails = ({ planet }: { planet: Planet }) => {
+  const planetDetails = getEntityDetails(planet)
 
   return (
     <Card>
       <CardHeader>
-        <Heading size='md'>Specie Details</Heading>
+        <Heading size='md'>Planet Details</Heading>
       </CardHeader>
 
       <CardBody>
         <Stack divider={<StackDivider />} spacing='4'>
-          {specieDetails.map(({ label, value }) => (
+          {planetDetails.map(({ label, value }) => (
             <Box key={value}>
               <Heading size='xs' textTransform='uppercase'>
                 {label}
@@ -38,4 +38,4 @@ const SpecieDetails = ({ specie }: { specie: Specie }) => {
   )
 }
 
-export default SpecieDetails
+export default PlanetDetails

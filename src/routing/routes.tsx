@@ -7,6 +7,7 @@ import SearchPage from '../pages/SearchPage'
 import VehiclePage from '../pages/VehiclePage'
 import FilmPage from '../pages/FilmPage'
 import SpeciePage from '../pages/SpeciePage'
+import PlanetPage from '../pages/PlanetPage'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: 'vehicles/:id',
         element: <VehiclePage />,
+      },
+      {
+        path: 'planets/:id',
+        element: <PlanetPage />,
       },
       {
         path: 'species/:id',
