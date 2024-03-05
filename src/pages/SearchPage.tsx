@@ -6,8 +6,10 @@ import SearchInput from '../components/SearchInput'
 const SearchPage = () => {
   return (
     <>
-      <SearchInput />
-      <Categories />
+      <Box>
+        <SearchInput />
+        <Categories />
+      </Box>
       <Box>
         {categories.map((category) => (
           <CategoryList key={category.value} category={category} />
