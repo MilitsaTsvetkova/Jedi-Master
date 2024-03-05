@@ -18,6 +18,7 @@ import { getRedirectLink } from '../utils/getRedirectLink'
 import { Link } from 'react-router-dom'
 import { getEntityDetails } from '../services/getEntitityDetails'
 import Starships from './Starships'
+import { extractId } from '../utils/extractId'
 
 const PersonDetails = ({ person }: { person: Person }) => {
   const { data: planet } = usePlanet(person.homeworld.replace(/\D/g, ''))
@@ -57,16 +58,10 @@ const PersonDetails = ({ person }: { person: Person }) => {
             </Box>
           )}
           {person.films.length > 0 && (
-            <Box>
-              <Heading size='xs' textTransform='uppercase'>
-                Appearance
-              </Heading>
-              <Box pt='2' fontSize='sm'>
-                <Films
-                  films={person.films.map((film) => film.replace(/\D/g, ''))}
-                />
-              </Box>
-            </Box>
+            <Films
+              label='Appearance'
+              films={person.films.map((film) => extractId(film))}
+            />
           )}
           {person.vehicles.length > 0 && (
             <Box>

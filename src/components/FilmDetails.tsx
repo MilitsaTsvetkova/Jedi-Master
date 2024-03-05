@@ -15,6 +15,7 @@ import Planets from './Planets'
 import Starships from './Starships'
 import Vehicles from './Vehicles'
 import Species from './Species'
+import { extractId } from '../utils/extractId'
 
 const FilmDetails = ({ film }: { film: Film }) => {
   const filmDetails = getEntityDetails(film)
@@ -58,9 +59,7 @@ const FilmDetails = ({ film }: { film: Film }) => {
               </Heading>
               <Box pt='2' fontSize='sm'>
                 <Planets
-                  planets={film.planets.map((planet) =>
-                    planet.replace(/\D/g, '')
-                  )}
+                  planets={film.planets.map((planet) => extractId(planet))}
                 />
               </Box>
             </Box>
@@ -73,7 +72,7 @@ const FilmDetails = ({ film }: { film: Film }) => {
               <Box pt='2' fontSize='sm'>
                 <Starships
                   starships={film.starships.map((starship) =>
-                    starship.replace(/\D/g, '')
+                    extractId(starship)
                   )}
                 />
               </Box>
@@ -86,9 +85,7 @@ const FilmDetails = ({ film }: { film: Film }) => {
               </Heading>
               <Box pt='2' fontSize='sm'>
                 <Vehicles
-                  vehicles={film.vehicles.map((vehicle) =>
-                    vehicle.replace(/\D/g, '')
-                  )}
+                  vehicles={film.vehicles.map((vehicle) => extractId(vehicle))}
                 />
               </Box>
             </Box>
@@ -100,9 +97,7 @@ const FilmDetails = ({ film }: { film: Film }) => {
               </Heading>
               <Box pt='2' fontSize='sm'>
                 <Species
-                  species={film.species.map((specie) =>
-                    specie.replace(/\D/g, '')
-                  )}
+                  species={film.species.map((specie) => extractId(specie))}
                 />
               </Box>
             </Box>

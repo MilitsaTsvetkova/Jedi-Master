@@ -11,6 +11,7 @@ import {
 import Starship from '../entities/Starship'
 import { getEntityDetails } from '../services/getEntitityDetails'
 import Films from './Films'
+import { extractId } from '../utils/extractId'
 
 const StarshipDetails = ({ starship }: { starship: Starship }) => {
   const starshipDetails = getEntityDetails(starship)
@@ -34,16 +35,10 @@ const StarshipDetails = ({ starship }: { starship: Starship }) => {
             </Box>
           ))}
           {starship.films.length > 0 && (
-            <Box>
-              <Heading size='xs' textTransform='uppercase'>
-                Films
-              </Heading>
-              <Box pt='2' fontSize='sm'>
-                <Films
-                  films={starship.films.map((film) => film.replace(/\D/g, ''))}
-                />
-              </Box>
-            </Box>
+            <Films
+              label='Films'
+              films={starship.films.map((film) => extractId(film))}
+            />
           )}
         </Stack>
       </CardBody>

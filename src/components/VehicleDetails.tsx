@@ -12,6 +12,7 @@ import Vehicle from '../entities/Vehicle'
 import { getEntityDetails } from '../services/getEntitityDetails'
 import People from './People'
 import Films from './Films'
+import { extractId } from '../utils/extractId'
 
 const VehicleDetails = ({ vehicle }: { vehicle: Vehicle }) => {
   const vehicleDetails = getEntityDetails(vehicle)
@@ -41,24 +42,16 @@ const VehicleDetails = ({ vehicle }: { vehicle: Vehicle }) => {
               </Heading>
               <Box pt='2' fontSize='sm'>
                 <People
-                  people={vehicle.pilots.map((pilot) =>
-                    pilot.replace(/\D/g, '')
-                  )}
+                  people={vehicle.pilots.map((pilot) => extractId(pilot))}
                 />
               </Box>
             </Box>
           )}
           {vehicle.films.length > 0 && (
-            <Box>
-              <Heading size='xs' textTransform='uppercase'>
-                Films
-              </Heading>
-              <Box pt='2' fontSize='sm'>
-                <Films
-                  films={vehicle.films.map((film) => film.replace(/\D/g, ''))}
-                />
-              </Box>
-            </Box>
+            <Films
+              label='Films'
+              films={vehicle.films.map((film) => extractId(film))}
+            />
           )}
         </Stack>
       </CardBody>

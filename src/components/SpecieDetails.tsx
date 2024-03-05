@@ -12,6 +12,7 @@ import Specie from '../entities/Specie'
 import { getEntityDetails } from '../services/getEntitityDetails'
 import People from './People'
 import Films from './Films'
+import { extractId } from '../utils/extractId'
 
 const SpecieDetails = ({ specie }: { specie: Specie }) => {
   const specieDetails = getEntityDetails(specie)
@@ -49,16 +50,10 @@ const SpecieDetails = ({ specie }: { specie: Specie }) => {
             </Box>
           )}
           {specie.films.length > 0 && (
-            <Box>
-              <Heading size='xs' textTransform='uppercase'>
-                Films
-              </Heading>
-              <Box pt='2' fontSize='sm'>
-                <Films
-                  films={specie.films.map((film) => film.replace(/\D/g, ''))}
-                />
-              </Box>
-            </Box>
+            <Films
+              label='Films'
+              films={specie.films.map((film) => extractId(film))}
+            />
           )}
         </Stack>
       </CardBody>
