@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig, CanceledError } from 'axios'
-import SearchResult from '../entities/Search'
 
 const axiosInstance = axios.create({
   baseURL: 'https://swapi.dev/api',
