@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, CanceledError } from 'axios'
+import SearchResult from '../entities/Search'
 
 const axiosInstance = axios.create({
   baseURL: 'https://swapi.dev/api',
@@ -23,7 +24,7 @@ class ApiClient<T> {
   }
   getAll = (ids: string[]) => {
     return axiosInstance
-      .get<T>(this.endpoint)
+      .get<any>(this.endpoint)
       .then((res) => res.data.results.filter(filter(ids)))
   }
 }
