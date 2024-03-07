@@ -19,11 +19,13 @@ import { getRedirectLink } from '../utils/getRedirectLink'
 import { Category } from './Categories'
 import CategoryDivider from './CategoryDivider'
 import Films from './Films'
+import { extractId } from '../utils/extractId'
 
 const CategoryList = ({ category }: { category: Category }) => {
   const [searchParams] = useSearchParams()
   const searchQuery = searchParams.get('q') ?? ''
   const { data, isLoading, error } = useSearch(category.value, searchQuery)
+  console.log(data)
   if (isLoading) return <Spinner />
   if (error) throw error
   const getValue = (
@@ -63,9 +65,7 @@ const CategoryList = ({ category }: { category: Category }) => {
                 </Heading>
                 <Box pt='2' fontSize='sm'>
                   <Films
-                    films={getFilms(item).map((film) =>
-                      film.replace(/\D/g, '')
-                    )}
+                    films={getFilms(item).map((film) => extractId(film))}
                     label={'Appears in: '}
                   />
                 </Box>

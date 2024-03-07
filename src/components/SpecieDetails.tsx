@@ -42,9 +42,7 @@ const SpecieDetails = ({ specie }: { specie: Specie }) => {
               </Heading>
               <Box pt='2' fontSize='sm'>
                 <People
-                  people={specie.people.map((person) =>
-                    person.replace(/\D/g, '')
-                  )}
+                  people={specie.people.map((person) => extractId(person))}
                 />
               </Box>
             </Box>

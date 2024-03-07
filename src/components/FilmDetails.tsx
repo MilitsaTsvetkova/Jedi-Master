@@ -46,7 +46,7 @@ const FilmDetails = ({ film }: { film: Film }) => {
               <Box pt='2' fontSize='sm'>
                 <People
                   people={film.characters.map((resident) =>
-                    resident.replace(/\D/g, '')
+                    extractId(resident)
                   )}
                 />
               </Box>

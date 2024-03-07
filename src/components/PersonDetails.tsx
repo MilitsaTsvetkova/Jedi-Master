@@ -21,7 +21,7 @@ import Starships from './Starships'
 import { extractId } from '../utils/extractId'
 
 const PersonDetails = ({ person }: { person: Person }) => {
-  const { data: planet } = usePlanet(person.homeworld.replace(/\D/g, ''))
+  const { data: planet } = usePlanet(extractId(person.homeworld))
 
   const personDetails = getEntityDetails(person)
 
@@ -71,7 +71,7 @@ const PersonDetails = ({ person }: { person: Person }) => {
               <Box pt='2' fontSize='sm'>
                 <Vehicles
                   vehicles={person.vehicles.map((vehicle) =>
-                    vehicle.replace(/\D/g, '')
+                    extractId(vehicle)
                   )}
                 />
               </Box>
@@ -84,9 +84,7 @@ const PersonDetails = ({ person }: { person: Person }) => {
               </Heading>
               <Box pt='2' fontSize='sm'>
                 <Species
-                  species={person.species.map((specie) =>
-                    specie.replace(/\D/g, '')
-                  )}
+                  species={person.species.map((specie) => extractId(specie))}
                 />
               </Box>
             </Box>
@@ -99,7 +97,7 @@ const PersonDetails = ({ person }: { person: Person }) => {
               <Box pt='2' fontSize='sm'>
                 <Starships
                   starships={person.starships.map((starship) =>
-                    starship.replace(/\D/g, '')
+                    extractId(starship)
                   )}
                 />
               </Box>

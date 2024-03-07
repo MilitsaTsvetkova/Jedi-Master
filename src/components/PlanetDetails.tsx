@@ -49,7 +49,7 @@ const PlanetDetails = ({ planet }: { planet: Planet }) => {
               <Box pt='2' fontSize='sm'>
                 <People
                   people={planet.residents.map((resident) =>
-                    resident.replace(/\D/g, '')
+                    extractId(resident)
                   )}
                 />
               </Box>
