@@ -16,10 +16,10 @@ import Starship from '../entities/Starship'
 import Vehicle from '../entities/Vehicle'
 import useSearch from '../hooks/useSearch'
 import { getRedirectLink } from '../utils/getRedirectLink'
-import { Category } from './Categories'
 import CategoryDivider from './CategoryDivider'
 import Films from './Films'
 import { extractId } from '../utils/extractId'
+import { Category } from '../common/types'
 
 const CategoryList = ({ category }: { category: Category }) => {
   const [searchParams] = useSearchParams()

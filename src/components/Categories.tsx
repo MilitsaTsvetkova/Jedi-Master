@@ -1,17 +1,6 @@
 import { Box, Radio, RadioGroup, Stack } from '@chakra-ui/react'
 import { useState } from 'react'
-export interface Category {
-  label: string
-  value: string
-}
-
-export const categories: Category[] = [
-  // { label: 'All', value: 'all' },
-  { label: 'People', value: 'people' },
-  { label: 'Planets', value: 'planets' },
-  { label: 'Starships', value: 'starships' },
-  { label: 'Vehicles', value: 'vehicles' },
-]
+import { categories } from '../common/types'
 
 const Categories = () => {
   const [value, setValue] = useState(categories[0].value)
