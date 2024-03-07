@@ -1,9 +1,7 @@
-import React from 'react'
-
 import { Box } from '@chakra-ui/react'
-import CategoryList from './CategoryList'
-import Categories from './Categories'
 import { categories } from '../common/types'
+import Categories from './Categories'
+import CategoryList from './CategoryList'
 
 const ResultList = () => {
   return (
