@@ -1,17 +1,21 @@
-import { Box, Radio, RadioGroup, Stack } from '@chakra-ui/react'
-import { useState } from 'react'
+import { Badge, Box, Radio, RadioGroup, Stack } from '@chakra-ui/react'
 import { categories } from '../common/types'
+import useCategoryStore from '../store/store'
 
 const Categories = () => {
-  const [value, setValue] = useState(categories[0].value)
+  const { selectedCategory: category, setSelectedCategory } = useCategoryStore()
 
   return (
     <Box m={4}>
-      <RadioGroup onChange={setValue} value={value}>
+      <RadioGroup
+        onChange={setSelectedCategory}
+        value={category.name}
+        name='categories'
+      >
         <Stack direction='row' spacing={5}>
           {categories.map(({ label, value }) => (
             <Radio key={value} value={value} colorScheme='yellow'>
-              {label}
+              {label} <Badge>{category.count}</Badge>
             </Radio>
           ))}
         </Stack>

@@ -25,7 +25,7 @@ const CategoryList = ({ category }: { category: Category }) => {
   const [searchParams] = useSearchParams()
   const searchQuery = searchParams.get('q') ?? ''
   const { data, isLoading, error } = useSearch(category.value, searchQuery)
-  console.log(data)
+
   if (isLoading) return <Spinner />
   if (error) throw error
   const getValue = (
