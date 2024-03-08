@@ -1,17 +1,19 @@
-import { Box } from '@chakra-ui/react'
+import { Image, Center } from '@chakra-ui/react'
 import NavBar from '../components/NavBar'
+import error from '../assets/error.png'
 
 function ErrorPage() {
   return (
     <>
       <NavBar />
-      <Box
-        backgroundImage="url('src/assets/error.png')"
-        backgroundPosition='center'
-        backgroundRepeat='no-repeat'
-        backgroundSize='cover'
-        h='100vh'
-      />
+      <Center>
+        <Image
+          src={error}
+          boxSize='700px'
+          objectFit='cover'
+          borderRadius={5}
+        ></Image>
+      </Center>
     </>
   )
 }
