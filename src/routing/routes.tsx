@@ -9,6 +9,8 @@ import FilmPage from '../pages/FilmPage'
 import SpeciePage from '../pages/SpeciePage'
 import PlanetPage from '../pages/PlanetPage'
 import StarshipPage from '../pages/StarshipPage'
+import UsersList from '../components/UserList'
+import UserDetail from '../components/UserDetail'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,16 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
+      {
+        path: 'users',
+        element: <UsersList />,
+        children: [
+          {
+            path: ':id',
+            element: <UserDetail />,
+          },
+        ],
+      },
       {
         path: 'people/:id',
         element: <PersonPage />,
